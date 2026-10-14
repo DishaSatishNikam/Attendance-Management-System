@@ -1,0 +1,35 @@
+
+def markAttendance(name, status):
+    return name, status
+
+
+def displayAttendance(attendance):
+    print("\n--- Attendance Report ---")
+    for name, status in attendance:
+        print(name, ":", status)
+
+
+def calculatePresent(attendance):
+    count = 0
+    for name, status in attendance:
+        if status == "Present":
+            count += 1
+    return count
+
+
+def main():
+    attendance = []
+
+    attendance.append(markAttendance("Shrutika", "Present"))
+    attendance.append(markAttendance("Payal", "Absent"))
+    attendance.append(markAttendance("Sakshi", "Present"))
+
+    displayAttendance(attendance)
+
+    present = calculatePresent(attendance)
+    print("\nTotal Students:", len(attendance))
+    print("Total Present:", present)
+    print("Total Absent:", len(attendance) - present)
+
+
+main()
